@@ -1,0 +1,24 @@
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# User-specific files for Visual Studio for Mac
+.vscode/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows Installer files for AppV
+*.appv
+
+# Windows Installer files for ClickOnce
+Publish/
+
+# Ignore folders for build output
+bin/
+obj/
