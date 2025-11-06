@@ -4,8 +4,11 @@
 *.userosscache
 *.sln.docstates
 
-# User-specific files for Visual Studio for Mac
+# User-specific files for Visual Studio Code for Mac
 .vscode/
+
+# User-specific files for Visual Studio for Windows
+.vs/
 
 # Windows Installer files
 *.cab
