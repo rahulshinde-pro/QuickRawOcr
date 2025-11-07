@@ -11,5 +11,10 @@ namespace QuickRawOcr.UI.WPF
 		{
 			InitializeComponent();
 		}
-	}
+
+		private void btnImport_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+    }
 }
