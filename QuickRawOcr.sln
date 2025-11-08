@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickRawOcr.UI.WPF", "QuickRawOcr.UI.WPF\QuickRawOcr.UI.WPF.csproj", "{A0AD1EAC-693E-4799-87CD-9795BAA5BED4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickRawOcr.UI.WPF", "QuickRawOcr.UI.WPF\QuickRawOcr.UI.WPF.csproj", "{A0AD1EAC-693E-4799-87CD-9795BAA5BED4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickRawOcr.Application", "QuickRawOcr.Application\QuickRawOcr.Application.csproj", "{6F528CC2-0AA3-4F92-AB3C-66FF9195F74B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickRawOcr.ApplicationLogic", "QuickRawOcr.Application\QuickRawOcr.ApplicationLogic.csproj", "{6F528CC2-0AA3-4F92-AB3C-66FF9195F74B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

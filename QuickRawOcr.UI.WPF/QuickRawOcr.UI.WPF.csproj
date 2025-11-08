@@ -8,4 +8,8 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\QuickRawOcr.Application\QuickRawOcr.ApplicationLogic.csproj" />
+  </ItemGroup>
+
 </Project>

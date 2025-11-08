@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuickRawOcr.Application.Common
+namespace QuickRawOcr.ApplicationLogic.Common
 {
 	public static class AppConstants
 	{

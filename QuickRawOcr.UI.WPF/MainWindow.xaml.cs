@@ -1,4 +1,8 @@
-﻿using System.Windows;
+﻿using Microsoft.Win32;
+using QuickRawOcr.ApplicationLogic.DTOs;
+using QuickRawOcr.ApplicationLogic.Interfaces;
+using QuickRawOcr.ApplicationLogic.Services;
+using System.Windows;
 
 namespace QuickRawOcr.UI.WPF
 {
@@ -7,14 +11,39 @@ namespace QuickRawOcr.UI.WPF
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+		private IOcrService _ocrService;
+		private IFileService _fileService;
+		private WpfImageOperations _imageOperations;
+
 		public MainWindow()
 		{
 			InitializeComponent();
+			_ocrService = new OcrService();
+			_fileService = new FileService();
+			_imageOperations = new WpfImageOperations();
 		}
 
 		private void btnImport_Click(object sender, RoutedEventArgs e)
 		{
+			OpenFileDialogDetail openFileDialogDetail = new OpenFileDialogDetail();
+			_fileService.SetOpenFileDialogDetail(openFileDialogDetail);
+			OpenFileDialog openFileDialog = new OpenFileDialog
+			{
+				Title = openFileDialogDetail.DialogTitle,
+				Filter = openFileDialogDetail.Filter,
+				Multiselect = openFileDialogDetail.Multiselect
+			};
 
+			openFileDialog.ShowDialog();
+			OcrInput ocrInput = new OcrInput(openFileDialog.FileName);
+
+			ImagePanel.Children.Clear();
+			txtFullText.Text = string.Empty;
+
+			OcrOutput ocrOutput = _ocrService.GetFullOcrText(ocrInput);
+			var wpfImage = _imageOperations.GetImage(ocrOutput.BasicBitmap);
+			ImagePanel.Children.Add(wpfImage);
+			txtFullText.Text = ocrOutput.FullPageText;
 		}
     }
 }
