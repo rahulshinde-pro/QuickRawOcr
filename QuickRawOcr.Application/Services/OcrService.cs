@@ -5,14 +5,21 @@ namespace QuickRawOcr.ApplicationLogic.Services
 {
 	public class OcrService : IOcrService
 	{
-		public OcrService() { }
+		private ICoreOcrService _coreOcrService;
+		public OcrService()
+		{
+			_coreOcrService = new CoreOcrService();
+		}
 
 		public OcrOutput GetFullOcrText(OcrInput ocrInput)
 		{
 			OcrOutput ocrOutput = new OcrOutput();
 			ocrOutput.BasicBitmap = new System.Drawing.Bitmap(ocrInput.FilePath);
 
-			// TODO create one core OCR server and get ocr text for the respective image
+			TesseractOutput tesseractOutput = _coreOcrService.GetFullPageOcr(ocrInput.FilePath);
+			ocrOutput.IsSuccess = tesseractOutput.IsSuccess;
+			ocrOutput.FullPageText = tesseractOutput.OutputText;
+			ocrOutput.Error = tesseractOutput.Error;
 
 			return ocrOutput;
 		}

@@ -11,5 +11,7 @@ namespace QuickRawOcr.ApplicationLogic.DTOs
 	{
 		public string FullPageText { get; set; }
 		public Bitmap BasicBitmap { get; set; }
+		public bool IsSuccess { get; set; }
+		public string Error {  get; set; }
 	}
 }

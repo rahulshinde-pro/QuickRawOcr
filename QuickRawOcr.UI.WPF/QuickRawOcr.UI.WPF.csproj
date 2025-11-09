@@ -12,4 +12,8 @@
     <ProjectReference Include="..\QuickRawOcr.Application\QuickRawOcr.ApplicationLogic.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="TessData\" />
+  </ItemGroup>
+
 </Project>

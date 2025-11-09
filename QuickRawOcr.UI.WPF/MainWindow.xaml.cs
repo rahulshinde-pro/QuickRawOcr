@@ -35,15 +35,25 @@ namespace QuickRawOcr.UI.WPF
 			};
 
 			openFileDialog.ShowDialog();
-			OcrInput ocrInput = new OcrInput(openFileDialog.FileName);
+			if (openFileDialog.FileName != string.Empty)
+			{
+				OcrInput ocrInput = new OcrInput(openFileDialog.FileName);
 
-			ImagePanel.Children.Clear();
-			txtFullText.Text = string.Empty;
+				ImagePanel.Children.Clear();
+				txtFullText.Text = string.Empty;
 
-			OcrOutput ocrOutput = _ocrService.GetFullOcrText(ocrInput);
-			var wpfImage = _imageOperations.GetImage(ocrOutput.BasicBitmap);
-			ImagePanel.Children.Add(wpfImage);
-			txtFullText.Text = ocrOutput.FullPageText;
+				OcrOutput ocrOutput = _ocrService.GetFullOcrText(ocrInput);
+				if (ocrOutput.IsSuccess)
+				{
+					var wpfImage = _imageOperations.GetImage(ocrOutput.BasicBitmap);
+					ImagePanel.Children.Add(wpfImage);
+					txtFullText.Text = ocrOutput.FullPageText;
+				}
+				else
+				{
+					MessageBox.Show(ocrOutput.Error);
+				}
+			}
 		}
     }
 }
