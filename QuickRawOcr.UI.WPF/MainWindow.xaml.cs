@@ -25,34 +25,41 @@ namespace QuickRawOcr.UI.WPF
 
 		private void btnImport_Click(object sender, RoutedEventArgs e)
 		{
-			OpenFileDialogDetail openFileDialogDetail = new OpenFileDialogDetail();
-			_fileService.SetOpenFileDialogDetail(openFileDialogDetail);
-			OpenFileDialog openFileDialog = new OpenFileDialog
+			try
 			{
-				Title = openFileDialogDetail.DialogTitle,
-				Filter = openFileDialogDetail.Filter,
-				Multiselect = openFileDialogDetail.Multiselect
-			};
+				OpenFileDialogDetail openFileDialogDetail = new OpenFileDialogDetail();
+				_fileService.SetOpenFileDialogDetail(openFileDialogDetail);
+				OpenFileDialog openFileDialog = new OpenFileDialog
+				{
+					Title = openFileDialogDetail.DialogTitle,
+					Filter = openFileDialogDetail.Filter,
+					Multiselect = openFileDialogDetail.Multiselect
+				};
 
-			openFileDialog.ShowDialog();
-			if (openFileDialog.FileName != string.Empty)
+				openFileDialog.ShowDialog();
+				if (openFileDialog.FileName != string.Empty)
+				{
+					OcrInput ocrInput = new OcrInput(openFileDialog.FileName);
+
+					ImagePanel.Children.Clear();
+					txtFullText.Text = string.Empty;
+
+					OcrOutput ocrOutput = _ocrService.GetFullOcrText(ocrInput);
+					if (ocrOutput.IsSuccess)
+					{
+						var wpfImage = _imageOperations.GetImage(ocrOutput.BasicBitmap);
+						ImagePanel.Children.Add(wpfImage);
+						txtFullText.Text = ocrOutput.FullPageText;
+					}
+					else
+					{
+						MessageBox.Show(ocrOutput.Error);
+					}
+				}
+			}
+			catch (Exception ex)
 			{
-				OcrInput ocrInput = new OcrInput(openFileDialog.FileName);
-
-				ImagePanel.Children.Clear();
-				txtFullText.Text = string.Empty;
-
-				OcrOutput ocrOutput = _ocrService.GetFullOcrText(ocrInput);
-				if (ocrOutput.IsSuccess)
-				{
-					var wpfImage = _imageOperations.GetImage(ocrOutput.BasicBitmap);
-					ImagePanel.Children.Add(wpfImage);
-					txtFullText.Text = ocrOutput.FullPageText;
-				}
-				else
-				{
-					MessageBox.Show(ocrOutput.Error);
-				}
+				MessageBox.Show(ex.Message + Environment.NewLine + ex.StackTrace);
 			}
 		}
     }
