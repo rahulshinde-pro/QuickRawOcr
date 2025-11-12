@@ -62,5 +62,10 @@ namespace QuickRawOcr.UI.WPF
 				MessageBox.Show(ex.Message + Environment.NewLine + ex.StackTrace);
 			}
 		}
+
+		private void btnExport_Click(object sender, RoutedEventArgs e)
+		{
+
+        }
     }
 }
