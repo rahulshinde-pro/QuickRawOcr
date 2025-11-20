@@ -63,9 +63,11 @@ namespace QuickRawOcr.UI.WPF
 			}
 		}
 
-		private void btnExport_Click(object sender, RoutedEventArgs e)
+		private void btnExportSetting_Click(object sender, RoutedEventArgs e)
 		{
-
-        }
-    }
+			SettingsWindow settingsWindow = new SettingsWindow();
+			settingsWindow.Owner = this;
+			settingsWindow.ShowDialog();
+		}
+	}
 }

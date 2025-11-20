@@ -25,9 +25,9 @@
                             FontSize="18" FontWeight="Bold" Click="btnImport_Click" />
                 </StackPanel>
                 <StackPanel>
-                    <Button x:Name="btnExport" Content="Export" Height="33" Width="140" 
+                    <Button x:Name="btnExportSetting" Content="Export Settings" Height="33" Width="140" 
                             Margin ="0 4 10 0" HorizontalAlignment="Right"
-                            FontSize="18" FontWeight="Bold" Click="btnExport_Click" />
+                            FontSize="18" FontWeight="Bold" Click="btnExportSetting_Click" />
                 </StackPanel>
             </Grid>
 

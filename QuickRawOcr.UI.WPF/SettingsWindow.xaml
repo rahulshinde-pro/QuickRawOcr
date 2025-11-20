@@ -1,0 +1,31 @@
+﻿<Window x:Class="QuickRawOcr.UI.WPF.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuickRawOcr.UI.WPF"
+        mc:Ignorable="d"
+        Title="Settings" Height="200" Width="350"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize">
+    <StackPanel Margin="20" VerticalAlignment="Top">
+        
+        <TextBlock Text="Export Format:"/>
+        <ComboBox Width="150" Name="ExportFormatsComboBox"
+                  SelectedItem="{Binding OutputFormat}" />
+
+        <TextBlock Text="Export To:" Margin="0 10 0 0"/>
+        <StackPanel Orientation="Horizontal">
+            <TextBox Width="200"
+                     Text="{Binding OutputDirectory}" />
+            <Button Content="Browse"
+                    Width="70"
+                    Command="{Binding BrowseFolderCommand}"/>
+        </StackPanel>
+
+        <Button Content="Save"
+                Width="100"
+                Margin="0 15 0 0"
+                Command="{Binding SaveCommand}"/>
+    </StackPanel>
+</Window>
