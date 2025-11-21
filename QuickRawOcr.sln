@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickRawOcr.UI.WPF", "Quick
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickRawOcr.ApplicationLogic", "QuickRawOcr.Application\QuickRawOcr.ApplicationLogic.csproj", "{6F528CC2-0AA3-4F92-AB3C-66FF9195F74B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickRawOcr.Domain", "QuickRawOcr.Domain\QuickRawOcr.Domain.csproj", "{7B3EAA58-222E-43F0-B20F-DE5A3BED1274}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6F528CC2-0AA3-4F92-AB3C-66FF9195F74B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F528CC2-0AA3-4F92-AB3C-66FF9195F74B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F528CC2-0AA3-4F92-AB3C-66FF9195F74B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B3EAA58-222E-43F0-B20F-DE5A3BED1274}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B3EAA58-222E-43F0-B20F-DE5A3BED1274}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B3EAA58-222E-43F0-B20F-DE5A3BED1274}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B3EAA58-222E-43F0-B20F-DE5A3BED1274}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

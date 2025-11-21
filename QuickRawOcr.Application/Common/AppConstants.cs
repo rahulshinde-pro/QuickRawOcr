@@ -17,12 +17,6 @@ namespace QuickRawOcr.ApplicationLogic.Common
 			deu = 1
 		}
 
-		public enum ExportFileFormat
-		{
-			xml = 0,
-			csv = 1
-		}
-
 		private static string GetProjectRoot()
 		{
 			// Go up 3 levels from bin/Debug/netX.Y/
